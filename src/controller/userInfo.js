@@ -4,21 +4,7 @@ const UserModel = require('../model/User')
 const Role = require('../model/Role')
 
 class UserController extends BaseController {
-  static async getUser(ctx) {
-   // let sql = `select * from user where status=1`
-    // const res = await db.query(sql)
-    // const res = await UserModel.findAll()
-    const res = await UserModel.findAll({
-      where: {
-          status: 1
-      },
-      include: {
-        model: Role
-    }
-  })
-    ctx.body = BaseController.renderJsonSuccess(200, res)
-    // ctx.body = BaseController.renderJsonSuccess(200, res)
-  }
+
 
   static async getUserDetail(ctx) {
     const id = ctx.params.id
